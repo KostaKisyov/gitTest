@@ -8,6 +8,12 @@ namespace gitTest
             string[] names = { "Peter", "Michell", "Jane", "Steve" };
             string[] places = { "Sofia", "Plovdiv", "Varna", "Burgas" };
             string[] verbs = { "eats", "holds", "sees", "plays with", "brings" };
+
+
+
+
+
+
             string[] nouns = { "stones", "cake", "apple", "laptop", "bikes" };
             string[] adverbs = { "slowly", "diligently", "warmly", "sadly", "rapidly" };
             string[] details = { "near the river", "at home", "in the park" };
