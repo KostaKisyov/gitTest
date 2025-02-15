@@ -5,38 +5,41 @@ namespace gitTest
     {
         static void Main(string[] args)
         {
-            string[] names = { "Peter", "Michell", "Jane", "Steve" };
-            string[] places = { "Sofia", "Plovdiv", "Varna", "Burgas" };
-            string[] verbs = { "eats", "holds", "sees", "plays with", "brings" };
+            List<int> ints = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToList();
 
+            double average = ints.Average();
+            List<int> result = NumbersGreaterThanAvrg(ints, average);
 
+            result.Sort();
+            result.Reverse();
 
+            List<int> finalResult = result.Take(5).ToList();
 
-
-
-            string[] nouns = { "stones", "cake", "apple", "laptop", "bikes" };
-            string[] adverbs = { "slowly", "diligently", "warmly", "sadly", "rapidly" };
-            string[] details = { "near the river", "at home", "in the park" };
-
-            Random random = new Random();
-
-            string name = GetRandomWord(names, random);
-            string place = GetRandomWord(places, random);
-            string verb = GetRandomWord(verbs, random);
-            string noun = GetRandomWord(nouns, random);
-            string adverb = GetRandomWord(adverbs, random);
-            string detail = GetRandomWord(details, random);
-
-            string sentence = $"{name} from {place} {adverb} {verb} {noun} {detail}.";
-            Console.WriteLine("Here is your random sentence:");
-            Console.WriteLine(sentence);
+            if (finalResult.Count == 0) // Поправена проверка
+            {
+                Console.WriteLine("No");
+            }
+            else
+            {
+                Console.WriteLine(string.Join(" ", finalResult));
+            }
         }
 
-        static string GetRandomWord(string[] words, Random random)
+        static List<int> NumbersGreaterThanAvrg(List<int> ints, double average)
         {
-            int index = random.Next(words.Length);
-            return words[index];
+            List<int> result = new List<int>();
+
+            foreach (int num in ints)
+            {
+                if (num > average)
+                {
+                    result.Add(num);
+                }
+            }
+
+            return result;
         }
-    
     }
 }
