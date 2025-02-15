@@ -25,7 +25,7 @@ namespace gitTest
             {
                 Console.WriteLine(string.Join(" ", finalResult));
             }
-        }
+        } 
 
         static List<int> NumbersGreaterThanAvrg(List<int> ints, double average)
         {
